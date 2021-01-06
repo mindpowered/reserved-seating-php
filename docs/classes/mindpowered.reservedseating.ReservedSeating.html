@@ -1,0 +1,1929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/mindpowered.html">\mindpowered</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">1</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-857343694"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-857343694" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-229652635"></a>
+                                <a href="../namespaces/mindpowered.html" style="margin-left: 30px; padding-left: 0">mindpowered</a>
+            </div>
+            <div id="namespace-229652635" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-283729109"></a>
+                                <a href="../namespaces/mindpowered.reservedseating.html" style="margin-left: 30px; padding-left: 0">reservedseating</a>
+            </div>
+            <div id="namespace-283729109" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/mindpowered.reservedseating.ReservedSeating.html">ReservedSeating</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/mindpowered.reservedseating.html">\mindpowered\reservedseating</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\mindpowered\reservedseating</small>ReservedSeating</h1>
+                    <p><em>An Library for Reserved Seating
+Venues have Seats, Events are at Venues
+Reservations are Seats at Events</em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_CreateVenue" class="">CreateVenue()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_CreateVenueConfiguration" class="">CreateVenueConfiguration()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_CreateSeat" class="">CreateSeat()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_CreateEvent" class="">CreateEvent()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_CreateTable" class="">CreateTable()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_CreateOrder" class="">CreateOrder()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_GetVenue" class="">GetVenue()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_GetVenueConfiguration" class="">GetVenueConfiguration()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_GetSeat" class="">GetSeat()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_GetEvent" class="">GetEvent()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_GetTable" class="">GetTable()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_UpdateVenue" class="">UpdateVenue()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_UpdateVenueConfiguration" class="">UpdateVenueConfiguration()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_UpdateSeat" class="">UpdateSeat()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_UpdateEvent" class="">UpdateEvent()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_UpdateTable" class="">UpdateTable()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_DeleteVenue" class="">DeleteVenue()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_DeleteVenueConfiguration" class="">DeleteVenueConfiguration()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_DeleteSeat" class="">DeleteSeat()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_DeleteEvent" class="">DeleteEvent()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_DeleteTable" class="">DeleteTable()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_DeleteOrder" class="">DeleteOrder()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_CompleteOrder" class="">CompleteOrder()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_AddSeatToOrder" class="">AddSeatToOrder()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_ContinueOrder" class="">ContinueOrder()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_AutoSelect" class="">AutoSelect()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_CancelEvent" class="">CancelEvent()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_CancelReservation" class="">CancelReservation()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_GetSeatsAndTablesForEvent" class="">GetSeatsAndTablesForEvent()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_FindAbandonedOrders" class="">FindAbandonedOrders()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_GetOrdersForUser" class="">GetOrdersForUser()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_GetAllEventsOnSale" class="">GetAllEventsOnSale()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_UpdateVenueConfigurationAvailability" class="">UpdateVenueConfigurationAvailability()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_GetVenueConfigurations" class="">GetVenueConfigurations()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_GetOrderSummary" class="">GetOrderSummary()</a><br />
+                                                                    <a href="../classes/mindpowered.reservedseating.ReservedSeating.html#method_GetAllVenuesByOwner" class="">GetAllVenuesByOwner()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/ReservedSeating.html"><div class="path-wrapper">ReservedSeating.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Default</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\mindpowered\reservedseating\ReservedSeating</div>
+                            </dd>
+
+                        
+                        
+                        
+                                                
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                        
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct() </pre>
+                <p><em>ReservedSeating</em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_CreateVenue" name="method_CreateVenue" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">CreateVenue()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">CreateVenue(string  <span class="argument">$ownerId</span>, string  <span class="argument">$name</span>, float  <span class="argument">$maxPeople</span>) : string</pre>
+                <p><em>Create a new venue</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$ownerId </td>
+                                <td><p>Who is responsible for this venue</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$name </td>
+                                <td><p>Name of Venue</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>float</td>
+                                <td>$maxPeople </td>
+                                <td><p>Maximum people permitted in venue</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>the id of the new venue</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_CreateVenueConfiguration" name="method_CreateVenueConfiguration" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">CreateVenueConfiguration()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">CreateVenueConfiguration(string  <span class="argument">$venueId</span>, string  <span class="argument">$name</span>, float  <span class="argument">$maxPeople</span>) : string</pre>
+                <p><em>Create a new Venue Congiguration</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$venueId </td>
+                                <td><p>Venue</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$name </td>
+                                <td><p>Name of Venue Configuration</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>float</td>
+                                <td>$maxPeople </td>
+                                <td><p>Maximum number of people permitted in this Venue Configuration</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>the id of the new Venue Configuration</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_CreateSeat" name="method_CreateSeat" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">CreateSeat()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">CreateSeat(string  <span class="argument">$name</span>, string  <span class="argument">$seatClass</span>, string  <span class="argument">$venueConfigId</span>, array  <span class="argument">$nextTo</span>, string  <span class="argument">$tableId</span>, object  <span class="argument">$geometry</span>) : string</pre>
+                <p><em>Create a new seat</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$name </td>
+                                <td><p>The seat name</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$seatClass </td>
+                                <td><p>The class of seat</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$venueConfigId </td>
+                                <td><p>the Venue Configuration the seat belongs to</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$nextTo </td>
+                                <td><p>the seats that are next to this one</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$tableId </td>
+                                <td><p>the table this seat is at</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>object</td>
+                                <td>$geometry </td>
+                                <td><p>Information about where the Seat is</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>the id of the new seat</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_CreateEvent" name="method_CreateEvent" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">CreateEvent()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">CreateEvent(string  <span class="argument">$ownerId</span>, string  <span class="argument">$venueConfigId</span>, float  <span class="argument">$maxPeople</span>) : string</pre>
+                <p><em>Create a new Event</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$ownerId </td>
+                                <td><p>Who is responsible for this event</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$venueConfigId </td>
+                                <td><p>Venue Configuration to use for this event</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>float</td>
+                                <td>$maxPeople </td>
+                                <td><p>Maximum people permitted in venue</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>the id of the new Event</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_CreateTable" name="method_CreateTable" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">CreateTable()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">CreateTable(string  <span class="argument">$venueConfigId</span>, float  <span class="argument">$minSeats</span>, float  <span class="argument">$maxSeats</span>, object  <span class="argument">$geometry</span>) : string</pre>
+                <p><em>Create a new Table</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$venueConfigId </td>
+                                <td><p>Venue Configuration to use for this event</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>float</td>
+                                <td>$minSeats </td>
+                                <td><p>Minimum number of people in a party to reserve the table</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>float</td>
+                                <td>$maxSeats </td>
+                                <td><p>Maximum number of people that can sit at this table</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>object</td>
+                                <td>$geometry </td>
+                                <td><p>Information about where the Table is</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>the id of the new Table</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_CreateOrder" name="method_CreateOrder" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">CreateOrder()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">CreateOrder(string  <span class="argument">$userId</span>, string  <span class="argument">$eventId</span>, float  <span class="argument">$expires</span>) : string</pre>
+                <p><em>Create a new Order</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$userId </td>
+                                <td><p>The user who is placing the reservation</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$eventId </td>
+                                <td><p>The event that the order is for</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>float</td>
+                                <td>$expires </td>
+                                <td><p>Timestamp when order expires and is considered abondoned</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>the id of the new Order</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetVenue" name="method_GetVenue" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetVenue()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetVenue(string  <span class="argument">$id</span>) : object</pre>
+                <p><em>Get a Venue</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$id </td>
+                                <td><p>Venue ID</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    object
+                                            &mdash; <p>the Venue data as an object</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetVenueConfiguration" name="method_GetVenueConfiguration" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetVenueConfiguration()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetVenueConfiguration(string  <span class="argument">$id</span>) : object</pre>
+                <p><em>Get a Venue Configuration</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$id </td>
+                                <td><p>Venue Configuration ID</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    object
+                                            &mdash; <p>the VenueConfiguration data as an object</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetSeat" name="method_GetSeat" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetSeat()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetSeat(string  <span class="argument">$id</span>) : object</pre>
+                <p><em>Get a Seat</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$id </td>
+                                <td><p>Seat ID</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    object
+                                            &mdash; <p>the Seat data as an object</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetEvent" name="method_GetEvent" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetEvent()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetEvent(string  <span class="argument">$id</span>) : object</pre>
+                <p><em>Get an Event</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$id </td>
+                                <td><p>Event ID</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    object
+                                            &mdash; <p>the Event data as an object</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetTable" name="method_GetTable" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetTable()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetTable(string  <span class="argument">$id</span>) : object</pre>
+                <p><em>Get a Table</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$id </td>
+                                <td><p>Table ID</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    object
+                                            &mdash; <p>the Table data as an object</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_UpdateVenue" name="method_UpdateVenue" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">UpdateVenue()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">UpdateVenue(object  <span class="argument">$data</span>, boolean  <span class="argument">$complete</span>) : void</pre>
+                <p><em>Update a Venue</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>object</td>
+                                <td>$data </td>
+                                <td><p>Venue data to update</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$complete </td>
+                                <td><p>if set to true, missing fields should be deleted</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_UpdateVenueConfiguration" name="method_UpdateVenueConfiguration" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">UpdateVenueConfiguration()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">UpdateVenueConfiguration(object  <span class="argument">$data</span>, boolean  <span class="argument">$complete</span>) : void</pre>
+                <p><em>Update a Venue Configuration</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>object</td>
+                                <td>$data </td>
+                                <td><p>Venue Configuration data to update</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$complete </td>
+                                <td><p>if set to true, missing fields should be deleted</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_UpdateSeat" name="method_UpdateSeat" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">UpdateSeat()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">UpdateSeat(object  <span class="argument">$data</span>, boolean  <span class="argument">$complete</span>) : void</pre>
+                <p><em>Update a Seat</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>object</td>
+                                <td>$data </td>
+                                <td><p>Seat data to update</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$complete </td>
+                                <td><p>if set to true, missing fields should be deleted</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_UpdateEvent" name="method_UpdateEvent" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">UpdateEvent()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">UpdateEvent(object  <span class="argument">$data</span>, boolean  <span class="argument">$complete</span>) : void</pre>
+                <p><em>Update an Event</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>object</td>
+                                <td>$data </td>
+                                <td><p>Event data to update</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$complete </td>
+                                <td><p>if set to true, missing fields should be deleted</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_UpdateTable" name="method_UpdateTable" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">UpdateTable()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">UpdateTable(object  <span class="argument">$data</span>, boolean  <span class="argument">$complete</span>) : void</pre>
+                <p><em>Update a Table</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>object</td>
+                                <td>$data </td>
+                                <td><p>Table data to update</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$complete </td>
+                                <td><p>if set to true, missing fields should be deleted</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_DeleteVenue" name="method_DeleteVenue" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">DeleteVenue()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">DeleteVenue(string  <span class="argument">$id</span>) : void</pre>
+                <p><em>Delete a Venue</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$id </td>
+                                <td><p>Venue ID</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_DeleteVenueConfiguration" name="method_DeleteVenueConfiguration" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">DeleteVenueConfiguration()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">DeleteVenueConfiguration(string  <span class="argument">$id</span>) : void</pre>
+                <p><em>Delete a Venue Configuration
+Must be unavailable first</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$id </td>
+                                <td><p>Venue Configuration ID</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_DeleteSeat" name="method_DeleteSeat" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">DeleteSeat()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">DeleteSeat(string  <span class="argument">$id</span>) : void</pre>
+                <p><em>Delete a Seat
+Venue Configuration must be unavailable first</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$id </td>
+                                <td><p>Seat ID</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_DeleteEvent" name="method_DeleteEvent" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">DeleteEvent()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">DeleteEvent(string  <span class="argument">$id</span>) : void</pre>
+                <p><em>Delete an Event
+Events on sale must be cancelled before being deleted.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$id </td>
+                                <td><p>Event ID</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_DeleteTable" name="method_DeleteTable" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">DeleteTable()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">DeleteTable(string  <span class="argument">$id</span>) : void</pre>
+                <p><em>Delete a Table
+Venue Configuration must be unavailable first</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$id </td>
+                                <td><p>Table ID</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_DeleteOrder" name="method_DeleteOrder" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">DeleteOrder()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">DeleteOrder(string  <span class="argument">$id</span>) : void</pre>
+                <p><em>Delete an Order
+Reservations must be cancelled first</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$id </td>
+                                <td><p>Order ID</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_CompleteOrder" name="method_CompleteOrder" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">CompleteOrder()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">CompleteOrder(string  <span class="argument">$orderId</span>) : void</pre>
+                <p><em>Complete order and convert holds into reservations</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$orderId </td>
+                                <td><p>Order ID</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_AddSeatToOrder" name="method_AddSeatToOrder" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">AddSeatToOrder()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">AddSeatToOrder(string  <span class="argument">$orderId</span>, string  <span class="argument">$seatId</span>) : void</pre>
+                <p><em>Place a hold on a seat and add it to an order</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$orderId </td>
+                                <td><p>Order ID</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$seatId </td>
+                                <td><p>Seat ID</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_ContinueOrder" name="method_ContinueOrder" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">ContinueOrder()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">ContinueOrder(string  <span class="argument">$orderId</span>, float  <span class="argument">$expires</span>) : void</pre>
+                <p><em>Keep an order from expiring and becoming abondoned</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$orderId </td>
+                                <td><p>Order ID</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>float</td>
+                                <td>$expires </td>
+                                <td><p>New timestamp when order will expire</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_AutoSelect" name="method_AutoSelect" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">AutoSelect()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">AutoSelect(float  <span class="argument">$numSeats</span>, array  <span class="argument">$seatClassPreference</span>) : void</pre>
+                <p><em>Automatically select some seats and add them to the order</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>float</td>
+                                <td>$numSeats </td>
+                                <td><p>Number of seats to select</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$seatClassPreference </td>
+                                <td><p>Which seat classes to prefer in order</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_CancelEvent" name="method_CancelEvent" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">CancelEvent()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">CancelEvent(string  <span class="argument">$eventId</span>) : void</pre>
+                <p><em>Cancel an event and all reservations for that event</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$eventId </td>
+                                <td><p>Event ID</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_CancelReservation" name="method_CancelReservation" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">CancelReservation()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">CancelReservation(string  <span class="argument">$orderId</span>, string  <span class="argument">$seatId</span>) : void</pre>
+                <p><em>Cancel a reservation and release the seats</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$orderId </td>
+                                <td><p>Order ID</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$seatId </td>
+                                <td><p>Seat ID</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetSeatsAndTablesForEvent" name="method_GetSeatsAndTablesForEvent" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetSeatsAndTablesForEvent()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetSeatsAndTablesForEvent(string  <span class="argument">$eventId</span>, float  <span class="argument">$page</span>, float  <span class="argument">$perpage</span>) : void</pre>
+                <p><em>Get all Seats and Tables for an Event</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$eventId </td>
+                                <td><p>Event ID</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>float</td>
+                                <td>$page </td>
+                                <td><p>page number</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>float</td>
+                                <td>$perpage </td>
+                                <td><p>per page</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_FindAbandonedOrders" name="method_FindAbandonedOrders" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">FindAbandonedOrders()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">FindAbandonedOrders(float  <span class="argument">$page</span>, float  <span class="argument">$perpage</span>) : array</pre>
+                <p><em>Get any abondoned (expired) orders</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>float</td>
+                                <td>$page </td>
+                                <td><p>page number</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>float</td>
+                                <td>$perpage </td>
+                                <td><p>per page</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>abondoned orders</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetOrdersForUser" name="method_GetOrdersForUser" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetOrdersForUser()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetOrdersForUser(string  <span class="argument">$userId</span>, float  <span class="argument">$page</span>, float  <span class="argument">$perpage</span>) : array</pre>
+                <p><em>Get a users orders</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$userId </td>
+                                <td><p>User ID</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>float</td>
+                                <td>$page </td>
+                                <td><p>page number</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>float</td>
+                                <td>$perpage </td>
+                                <td><p>per page</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>orders for user</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetAllEventsOnSale" name="method_GetAllEventsOnSale" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetAllEventsOnSale()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetAllEventsOnSale(float  <span class="argument">$page</span>, float  <span class="argument">$perpage</span>) : array</pre>
+                <p><em>Get all Events marked on sale</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>float</td>
+                                <td>$page </td>
+                                <td><p>page number</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>float</td>
+                                <td>$perpage </td>
+                                <td><p>per page</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>events on sale</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_UpdateVenueConfigurationAvailability" name="method_UpdateVenueConfigurationAvailability" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">UpdateVenueConfigurationAvailability()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">UpdateVenueConfigurationAvailability(string  <span class="argument">$venueConfigurationId</span>, boolean  <span class="argument">$available</span>) : void</pre>
+                <p><em>Make a venue configuration available or unavailable.</em></p>
+                <p>Must not have any events for sale using this venute configuration.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$venueConfigurationId </td>
+                                <td><p>Venue Configuration ID</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$available </td>
+                                <td><p>availability</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetVenueConfigurations" name="method_GetVenueConfigurations" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetVenueConfigurations()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetVenueConfigurations(string  <span class="argument">$venueId</span>) : array</pre>
+                <p><em>Get Venue Configurations for a Venue</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$venueId </td>
+                                <td><p>Venue ID</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>the Venue Configurations for the specified Venue</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetOrderSummary" name="method_GetOrderSummary" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetOrderSummary()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetOrderSummary(string  <span class="argument">$orderId</span>) : array</pre>
+                <p><em>Get a summary of an Order</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$orderId </td>
+                                <td><p>Order ID</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>the summary for the specified Order</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetAllVenuesByOwner" name="method_GetAllVenuesByOwner" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetAllVenuesByOwner()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetAllVenuesByOwner(string  <span class="argument">$ownerId</span>) : array</pre>
+                <p><em>Get all Venues for an owner</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$ownerId </td>
+                                <td><p>owner id</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>List of venues</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/mindpowered.reservedseating.ReservedSeating.html"><div class="path-wrapper">\mindpowered\reservedseating\ReservedSeating</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">ReservedSeating.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/ReservedSeating.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/mindpowered.html">\mindpowered</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on January 6th, 2021 at 08:51.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

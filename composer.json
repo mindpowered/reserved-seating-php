@@ -1,8 +1,8 @@
 {
     "name": "mindpowered/reservedseating",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "Reserved/Allocated/Assigned Seating for Venues and Events",
-    "license": "CPAL-1.0",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "haxe\\": "lib/haxe/",
